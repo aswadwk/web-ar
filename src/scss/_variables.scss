@@ -167,6 +167,7 @@ $color-contrast-dark: $body-color !default;
 $color-contrast-light: $light !default;
 
 $blue: #206bc4 !default;
+$brand: #191A4D !default;
 $azure: #4299e1 !default;
 $indigo: #4263eb !default;
 $purple: #ae3ec9 !default;
@@ -180,6 +181,7 @@ $teal: #0ca678 !default;
 $cyan: #17a2b8 !default;
 
 $color-blue: #206bc4;
+$color-brand: #191A4D;
 $color-azure: #3586c9;
 $color-indigo: #4263eb;
 $color-purple: #ae3ec9;
@@ -221,7 +223,8 @@ $hover-bg: rgba(var(--#{$prefix}muted-rgb), 0.04) !default;
 $disabled-bg: var(--#{$prefix}bg-surface-secondary) !default;
 $disabled-color: var(--#{$prefix}gray-300) !default;
 
-$primary: $blue !default;
+// $primary: $blue !default;
+$primary: $brand !default;
 $secondary: $text-muted !default;
 $success: $green !default;
 $info: $azure !default;
@@ -243,6 +246,7 @@ $theme-colors: (
 ) !default;
 
 $extra-colors: (
+  "brand": $brand,
   "blue": $blue,
   "azure": $azure,
   "indigo": $indigo,
@@ -256,6 +260,7 @@ $extra-colors: (
   "teal": $teal,
   "cyan": $cyan,
 ) !default;
+
 
 $social-colors: (
   "facebook": #1877f2,
@@ -298,8 +303,8 @@ $border-width: 1px !default;
 $border-width-wide: 2px !default;
 
 $border-radius-sm: 2px !default;
-$border-radius: 4px !default;
-$border-radius-lg: 8px !default;
+$border-radius: 8px !default;
+$border-radius-lg: 12px !default;
 $border-radius-pill: 100rem !default;
 
 // Icons

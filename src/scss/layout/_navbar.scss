@@ -59,9 +59,14 @@
       margin-left: auto;
     }
 
+    .nav-item.active{
+      // with color brand
+      background: var(--#{$prefix}primary);
+    }
+
     .nav-item.active:after {
       border-bottom-width: 0;
-      border-left-width: 3px;
+      // border-left-width: 3px;
       right: auto;
       top: 0;
       bottom: 0;
@@ -114,6 +119,15 @@ Navbar
         right: .375rem;
         transform: translate(50%, -50%);
       }
+    }
+
+    // hover
+    .nav-link:hover {
+      background: var(--#{$prefix}navbar-active-bg);
+    }
+
+    .nav-link.active {
+      color: var(--#{$prefix}primary-fg);
     }
   }
 }
@@ -270,9 +284,11 @@ Navbar nav
   align-items: stretch;
 
   .nav-item {
+    margin: 8px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: var(--#{$prefix}border-radius);
   }
 }
 

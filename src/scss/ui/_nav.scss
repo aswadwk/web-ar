@@ -81,7 +81,13 @@
     display: block;
     height: 100%;
   }
+
 }
+
+.nav-link-icon.active {
+  color: white;
+}
+
 
 .nav-fill {
   .nav-item {
