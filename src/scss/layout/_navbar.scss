@@ -78,6 +78,11 @@
       top: 0;
       bottom: 0;
     }
+
+    // // small
+    // .nav-link-title.navbar-hide{
+    //   display: none;
+    // }
   }
 }
 
@@ -186,6 +191,25 @@ Navbar
           ~ .navbar,
           ~ .page-wrapper {
             margin-left: $sidebar-width;
+          }
+        }
+
+        &.navbar-small{
+          ~ .navbar,
+          ~ .page-wrapper {
+            margin-left: $sidebar-small-width - 2rem;
+          }
+
+          .nav-link-title{
+            display: none;
+          }
+          .nav-link-icon {
+            margin: 0;
+          }
+          .nav-link {
+            // important
+            // justify-content: center;
+            justify-content: center !important;
           }
         }
 
@@ -347,6 +371,84 @@ Navbar vertical
               align-items: stretch;
             }
 
+            .navbar-small {
+              width: $sidebar-small-width;
+            }
+
+            .navbar-nav {
+              flex-direction: column;
+              flex-grow: 1;
+              min-height: auto;
+
+              .nav-link {
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+              }
+            }
+
+            > [class^="container"] {
+              flex-direction: column;
+              align-items: stretch;
+              min-height: 100%;
+              justify-content: flex-start;
+              padding: 0;
+            }
+
+            ~ .page {
+              padding-left: $sidebar-width;
+
+              [class^="container"] {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+              }
+            }
+
+            &.navbar-right ~ .page {
+              padding-left: 0;
+              padding-right: $sidebar-width;
+            }
+
+            @include navbar-vertical-nav;
+          }
+        }
+      }
+    }
+    &.navbar-small{
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} {
+          @include media-breakpoint-up($next) {
+            width: $sidebar-small-width;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: $zindex-fixed;
+            align-items: flex-start;
+            @include transition(transform $transition-time);
+            overflow-y: scroll;
+            padding: 0;
+
+            &.navbar-right {
+              left: auto;
+              right: 0;
+            }
+
+            .navbar-brand {
+              padding: (($navbar-height - $navbar-brand-image-height) * .5) 0;
+              justify-content: center;
+            }
+
+            .navbar-collapse {
+              align-items: stretch;
+            }
+
+            .navbar-small {
+              width: $sidebar-small-width;
+            }
+
             .navbar-nav {
               flex-direction: column;
               flex-grow: 1;
@@ -400,5 +502,28 @@ Navbar vertical
     background: inherit;
     z-index: -1;
     box-shadow: inherit;
+  }
+}
+
+.navbar-vertical.navbar-small {
+  // width: $sidebar-width;
+  transition: all 0.3s; // Add a transition to change all properties over 1 second
+
+
+  .nav-link {
+    justify-content: flex-start !important;
+  }
+
+  .nav-link-icon {
+    margin-right: 0.5rem;
+  }
+}
+
+.navbar-vertical.navbar-small:hover {
+  width: $sidebar-width; // Change the width on hover
+
+  .nav-link-title {
+    display: inline-block;
+    transition: all 0.3s; // Add a transition to change all properties over 1 second
   }
 }
