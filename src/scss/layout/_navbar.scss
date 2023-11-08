@@ -59,11 +59,18 @@
       margin-left: auto;
     }
 
-    .nav-item.active{
-      // with color brand
+    .active {
+      /* with color brand */
       background: var(--#{$prefix}primary);
     }
-
+    
+    /* Apply the common 'active' class to elements that need the same styling */
+    .nav-item.active,
+    .nav-link.active,
+    .nav-link-icon.active {
+      composes: active;
+    }
+    
     .nav-item.active:after {
       border-bottom-width: 0;
       // border-left-width: 3px;
