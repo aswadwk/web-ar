@@ -8,8 +8,7 @@
   </head>
   <body data-bs-theme="light">
     <!-- Sidebar -->
-    <aside class="navbar navbar-vertical navbar-small navbar-expand-lg ps-2">
-    <!-- <aside class="navbar navbar-vertical navbar-expand-lg ps-2"> -->
+    <aside class="navbar navbar-vertical navbar-expand-lg ps-2" id="showHideMenu" style="transition: width 0.3s;">
       <div class="container-fluid">
         <button
           class="navbar-toggler"
@@ -22,8 +21,8 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <h1 class="navbar-brand navbar-brand-autodark">
-          <a href=".">
+        <h1 class="navbar-brand navbar-brand-autodark d-flex justify-content-center align-items-center gap-4">
+          <a href="." class="" id="logoBrand">
             <img
               src="../img/company.png"
               width="110"
@@ -31,6 +30,15 @@
               alt="Tabler"
             />
           </a>
+          <div onclick="showHideMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer icon-tabler icon-tabler-arrow-bar-to-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2.25" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M10 12l10 0"></path>
+              <path d="M10 12l4 4"></path>
+              <path d="M10 12l4 -4"></path>
+              <path d="M4 4l0 16"></path>
+           </svg>
+          </div>
         </h1>
         <div class="navbar-nav flex-row d-lg-none">
           <div class="nav-item d-none d-lg-flex me-3">
@@ -812,7 +820,7 @@
       </div>
     </header>
 
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="transition: width 0.3s;">
       <!-- Page header -->
       <div class="page-header d-print-none">
         <div class="container-xl">
@@ -1392,5 +1400,14 @@
 
     <!-- Libs JS -->
     <script src="../js/tabler.min.js" defer></script>
+    <script>
+      function showHideMenu(){
+        var menu = document.getElementById("showHideMenu");
+        var logoBrand = document.getElementById("logoBrand");
+        // add class active
+        menu.classList.toggle("navbar-small");
+        logoBrand.classList.toggle("d-none");
+      }
+    </script>
   </body>
 </html>
